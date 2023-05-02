@@ -24,7 +24,7 @@ final class NetworkServiceTests: XCTestCase {
         }
         expectation.fulfill()
         
-        await waitForExpectations(timeout: 10, handler: nil)
+        await fulfillment(of: [expectation], timeout: 10.0)
         
         XCTAssertNil(resourceError)
         XCTAssertNotNil(resourceData)

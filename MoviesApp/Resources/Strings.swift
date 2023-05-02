@@ -12,7 +12,6 @@ enum AppStrings {
         static let defaultMovie = "Non existent long long Movie name"
         static let defaultMovieAuthor = "No movie :("
         static let defaultMovieDesc = "Non existent description"
-        static let defaultMovieLanguage = "nothing-C"
     }
     enum Empty {
         static let defaultAuthorImgSysName = ""

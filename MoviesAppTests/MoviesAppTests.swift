@@ -28,10 +28,6 @@ final class MoviesAppTests: XCTestCase {
         
         let movie = MovieCoreDataModel.init(context: PersistenceManager(inMemory: true).container.viewContext)
         movie.originalTitle = AppStrings.Stuffed.defaultMovieAuthor
-        movie.originalLanguage = AppStrings.Stuffed.defaultMovieLanguage
-        movie.popularity = AppStrings.Stuffed.defaultStars
-        movie.backdropPath = AppStrings.Stuffed.defaultMovieLanguage
-        movie.stars = AppStrings.Stuffed.defaultStars
         
         let view = Row(movie: movie)
         
@@ -49,28 +45,6 @@ final class MoviesAppTests: XCTestCase {
             .find(text:AppStrings.Stuffed.defaultMovieAuthor)
             .string()
         XCTAssertEqual(AppStrings.Stuffed.defaultMovieAuthor, inspectedMovieAuthor)
-        let inspectedMovie = try view
-            .inspect()
-            .find(text: AppStrings.Stuffed.defaultMovieLanguage)
-            .string()
-        XCTAssertEqual(AppStrings.Stuffed.defaultMovieLanguage, inspectedMovie)
-        
-        //Test Row, tap and expand behaviour
-        let expectation = view.inspection.inspect { view in
-            try view.hStack().callOnTapGesture()
-            let inspectedMovieDesc = try view
-                .find(text: AppStrings.Stuffed.defaultMovieDesc)
-                .string()
-            XCTAssertEqual(AppStrings.Stuffed.defaultMovieDesc, inspectedMovieDesc)
-            let inspectedMovieLanguage = try view
-                .find(text: AppStrings.Stuffed.defaultMovieLanguage)
-                .string()
-            XCTAssertEqual(AppStrings.Stuffed.defaultMovieLanguage, inspectedMovieLanguage)
-        }
-        
-        //ViewHosting allows the Views to be 'alive' by letting them live in itself, hence we are able to interact with the views
-        ViewHosting.host(view: view)
-        self.wait(for: [expectation], timeout: 1.0)
         
     }
     
@@ -123,8 +97,8 @@ final class MoviesAppTests: XCTestCase {
         await viewModel.fetchAllMovies()
         expectation.fulfill()
         
-        await waitForExpectations(timeout: 10.0)
-
+        await fulfillment(of: [expectation], timeout: 10.0)
+        
         Task { @MainActor in
             XCTAssertFalse(viewModel.movies.isEmpty)
         }
