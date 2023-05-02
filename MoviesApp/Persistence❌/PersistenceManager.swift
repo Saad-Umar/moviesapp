@@ -27,7 +27,6 @@ class PersistenceManager:NSObject {
             newItem.originalTitle = names[Int.random(in: 0...6)]
             newItem.releaseDate = dates[Int.random(in: 0...6)]
             newItem.originalLanguage = "English"
-            newItem.stars = Int32.random(in: 10...10000)
         }
         do {
             try viewContext.save()
