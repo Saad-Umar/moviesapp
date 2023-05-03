@@ -17,8 +17,12 @@ Details: SwiftUI, using MVVM under Test Driven Development (TDD) environment
 
 # UI:
 
+# Light Mode:
 <img src="https://drive.google.com/uc?export=view&id=12q75A_5-rCuRjHXG3auv5LfHg_d79XNx" width="150" height="325">     <img src="https://drive.google.com/uc?export=view&id=1ZpncwiT6cSyNRTVua9EAE7JiMGAORN_7" width="150" height="325">     <img src="https://drive.google.com/uc?export=view&id=1eScaeL9vevNAe9teigTVhXYvie6GdNR0" width="150" height="325">     <img src="https://drive.google.com/uc?export=view&id=1vXd7SbCOQqmgMwHXSjsb2u55-zfJrFt8" width="150" height="325"> 
 
+# Dark Mode:
+
+<img src="https://drive.google.com/uc?export=view&id=1xM4ymmtpQi2NVraf9Q2SkMrW8UHfcBGI" width="150" height="325">     <img src="https://drive.google.com/uc?export=view&id=1ZpncwiT6cSyNRTVua9EAE7JiMGAORN_7" width="150" height="325">     <img src="https://drive.google.com/uc?export=view&id=1eScaeL9vevNAe9teigTVhXYvie6GdNR0" width="150" height="325">     <img src="https://drive.google.com/uc?export=view&id=1vXd7SbCOQqmgMwHXSjsb2u55-zfJrFt8" width="150" height="325"> 
 
 # Setup and Usage:
 
