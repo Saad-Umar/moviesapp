@@ -75,7 +75,7 @@ struct Row_Previews: PreviewProvider {
     static var previews: some View {
         //It makes more sense to previews Row in a list.
         List {
-            Row(movie: MovieCoreDataModel.init(context: PersistenceManager.shared.container.viewContext))
+            Row(movie: MovieCoreDataModel.init(context: MockPersistenceManager.shared.container.viewContext))
         }
     }
 }
@@ -83,7 +83,7 @@ struct Row_Dark_Previews: PreviewProvider {
     static var previews: some View {
         //It makes more sense to previews Row in a list.
         List {
-            Row(movie: MovieCoreDataModel.init(context: PersistenceManager.shared.container.viewContext))
+            Row(movie: MovieCoreDataModel.init(context: MockPersistenceManager.shared.container.viewContext))
         }
         .preferredColorScheme(.dark)
     }

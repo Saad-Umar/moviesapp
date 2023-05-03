@@ -124,14 +124,14 @@ struct MoviesAppInnerView: View {
 
 struct MoviesAppView_Previews: PreviewProvider {
     static var previews: some View {
-        MoviesListView(viewModel: MoviesViewModel(persistenceManager: .preview))
+        MoviesListView(viewModel: MoviesViewModel(persistenceManager: MockPersistenceManager().preview))
             .environmentObject(NetworkMonitor())
     }
 }
 
 struct MoviesAppView_Dark_Previews: PreviewProvider {
     static var previews: some View {
-        MoviesListView(viewModel: MoviesViewModel(persistenceManager: .preview))
+        MoviesListView(viewModel: MoviesViewModel(persistenceManager: MockPersistenceManager().preview))
             .preferredColorScheme(.dark)
             .environmentObject(NetworkMonitor())
     }

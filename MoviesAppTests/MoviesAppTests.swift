@@ -26,7 +26,7 @@ final class MoviesAppTests: XCTestCase {
     ///Testing row with empty/default fields
     func testRowDefaultText() throws {
         
-        let movie = MovieCoreDataModel.init(context: PersistenceManager(inMemory: true).container.viewContext)
+        let movie = MovieCoreDataModel.init(context: MockPersistenceManager().container.viewContext)
         movie.originalTitle = AppStrings.Stuffed.defaultMovieAuthor
         
         let view = Row(movie: movie)
@@ -91,7 +91,7 @@ final class MoviesAppTests: XCTestCase {
     //MARK: View Model Tests
     ///Testing after loading of movies works, asserting that there are one or more items to display
     func testLoadingMovies() async throws {
-        let viewModel = MoviesViewModel(persistenceManager: PersistenceManager.preview)
+        let viewModel = MoviesViewModel(persistenceManager: MockPersistenceManager.preview)
         let expectation = expectation(description: "Getting movies from network call")
         
         await viewModel.fetchAllMovies()

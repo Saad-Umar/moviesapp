@@ -22,7 +22,7 @@ class MoviesViewModel: ObservableObject {
     /// Normally we would be using PersistenceManager.shared through out our life cycle
     /// But there can be instances where would want to mock it with something else
     /// For examples, in tests, we would want an inMemory persistence manager with run time dummy data
-    init(with service: Service = NetworkService(), persistenceManager: PersistenceManager = PersistenceManager.shared) {
+    init(with service: Service = NetworkService(), persistenceManager: PersistenceManager = AppPersistenceManager.shared) {
         self.service = service
         self.persistenceManager = persistenceManager
         self.persistenceManager.deleteAllData("MovieCoreDataModel") //clear CoreData for fresh storage
@@ -73,7 +73,7 @@ class MoviesViewModel: ObservableObject {
 extension MovieCoreDataModel {
     ///Convenience init to initialize Movie Core Data model from the Movie App Model
     convenience init(from model:Movie, with config: TMDBConfiguration?) {
-        self.init(context: PersistenceManager.shared.container.viewContext)
+        self.init(context: AppPersistenceManager.shared.container.viewContext)
         self.id = UUID()
         self.cachedDate = Date()
         self.originalTitle = model.originalTitle
@@ -84,7 +84,7 @@ extension MovieCoreDataModel {
     }
     ///Convenience init for empty views
     convenience init(with id: UUID) {
-        self.init(context: PersistenceManager.shared.container.viewContext)
+        self.init(context: AppPersistenceManager.shared.container.viewContext)
         self.id = id
         self.cachedDate = Date()
     }
